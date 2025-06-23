@@ -1,0 +1,28 @@
+name: Deploy OpenAPI Docs to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'openapi.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Copy openapi.yaml to docs/
+        run: |
+          mkdir -p docs
+          cp openapi.yaml docs/openapi.yaml
+
+      - name: Commit and push to docs
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add docs/openapi.yaml
+          git commit -m "Update docs/openapi.yaml"
+          git push
+        continue-on-error: true

@@ -1,0 +1,11 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  version: v1.0.0
+paths:
+  /hello:
+    $ref: './paths/hello.yaml'
+components:
+  schemas:
+    Hello:
+      $ref: './components/hello-schema.yaml'

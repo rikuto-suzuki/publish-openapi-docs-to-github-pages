@@ -14,8 +14,10 @@ files[] = {"id":"24849467-f27e3c1f-bd52-4040-99b3-d5ce523f179b","path":"Todo API
 [config.relations.collections.metaData]
 
 [config.relations.apiDefinition]
-files[] = {"path":"openapi.yaml","metaData":{}}
+files[] = {"path":"todo-api/components/hello-schema.yaml","metaData":{}}
+files[] = {"path":"todo-api/openapi.yaml","metaData":{}}
+files[] = {"path":"todo-api/paths/hello.yaml","metaData":{}}
 
 [config.relations.apiDefinition.metaData]
 type = openapi:3
-rootFiles[] = openapi.yaml
+rootFiles[] = todo-api/openapi.yaml

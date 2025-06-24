@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "f27e3c1f-bd52-4040-99b3-d5ce523f179b",
+		"name": "Todo API (Connect GitHub)",
+		"description": "ToDoアプリケーションのAPI仕様",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "24849467-f27e3c1f-bd52-4040-99b3-d5ce523f179b"
+	},
+	"item": [
+		{
+			"name": "todos",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "特定のToDoを取得",
+							"id": "c21c393c-3d5a-467d-890b-29b605b032c4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/todos/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"todos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "eiusmod est officia",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "22818d06-c775-46d1-bbbd-a7af340be8dd",
+									"name": "取得成功",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/todos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"todos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"abc123\",\n  \"title\": \"買い物に行く\",\n  \"completed\": false\n}"
+								},
+								{
+									"id": "cfd00065-2452-466a-8a36-9ca435afef71",
+									"name": "見つかりません",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/todos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"todos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": []
+								}
+							]
+						},
+						{
+							"name": "特定のToDoを更新",
+							"id": "9024d907-f667-4fdd-b715-2907caa48cde",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"宿題をやる\",\n  \"completed\": false\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/todos/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"todos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "eiusmod est officia",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "881dfb93-c176-4237-b1a6-5fb47a04a8b3",
+									"name": "更新成功",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"宿題をやる\",\n  \"completed\": false\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/todos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"todos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": []
+								}
+							]
+						},
+						{
+							"name": "特定のToDoを削除",
+							"id": "3951724a-71f2-4386-9aa1-a7ad3f19e1fd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/todos/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"todos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "eiusmod est officia",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "b0f054a8-1b5f-408c-bdef-aac877f1dfa7",
+									"name": "削除成功",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/todos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"todos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": []
+								}
+							]
+						}
+					],
+					"id": "ab217729-8fdd-4032-9d86-d5c915574d32"
+				},
+				{
+					"name": "ToDoの一覧を取得",
+					"id": "26f63b97-e55f-4b7a-a6b1-d1138f597e92",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/todos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "b27798bb-15dd-4bca-8ab7-7f6485ff5e70",
+							"name": "正常に取得",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/todos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"todos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"abc123\",\n    \"title\": \"買い物に行く\",\n    \"completed\": false\n  },\n  {\n    \"id\": \"abc123\",\n    \"title\": \"買い物に行く\",\n    \"completed\": false\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "ToDoを新規作成",
+					"id": "d13526f8-3d7b-4dec-a62a-599035ac6b17",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"宿題をやる\",\n  \"completed\": false\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/todos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "b9323fe2-3429-496f-8cd6-23318f053dd9",
+							"name": "作成成功",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"宿題をやる\",\n  \"completed\": false\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/todos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"todos"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"abc123\",\n  \"title\": \"買い物に行く\",\n  \"completed\": false\n}"
+						}
+					]
+				}
+			],
+			"id": "b1c45e44-1588-4efa-89ed-3a880aec97eb"
+		}
+	],
+	"variable": [
+		{
+			"id": "948beb2f-d952-41ab-922a-e3820353afcf",
+			"key": "baseUrl",
+			"value": "https://api.example.com"
+		}
+	]
+}

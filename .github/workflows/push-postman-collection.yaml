@@ -17,10 +17,14 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      - name: Create PostmanAPI requests
+        run: |
+          jq '{collection: .}' "Todo API (Connect GitHub).json" > collection.json
+
       - name: Push Collection to Postman
         run: |
           curl --location --request PUT \
             "https://api.getpostman.com/collections/${{ secrets.POSTMAN_COLLECTION_ID }}" \
             --header "X-Api-Key: ${{ secrets.POSTMAN_API_KEY }}" \
             --header "Content-Type: application/json" \
-            --data @"postman/collections/Todo API (Connect GitHub).json"
+            --data @collection.json

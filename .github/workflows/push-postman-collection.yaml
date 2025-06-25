@@ -4,6 +4,7 @@
 name: Push Postman Collection
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'postman/collections/Todo API (Connect GitHub).json'

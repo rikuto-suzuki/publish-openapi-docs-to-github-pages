@@ -1,0 +1,25 @@
+# リポジトリ内のコレクションファイルが更新されたとき
+# Postman API経由でコレクションに変更を反映します
+# これにより、コレクションとモックサーバーを最新の状態に保ちます。
+name: Push Postman Collection
+
+on:
+  push:
+    paths:
+      - 'postman/collections/Todo API (Connect GitHub).json'
+
+jobs:
+  push-postman:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Push Collection to Postman
+        run: |
+          curl --location --request PUT \
+            "https://api.getpostman.com/collections/${{ secrets.POSTMAN_COLLECTION_ID }}" \
+            --header "X-Api-Key: ${{ secrets.POSTMAN_API_KEY }}" \
+            --header "Content-Type: application/json" \
+            --data @postman/collections/Todo API (Connect GitHub).json

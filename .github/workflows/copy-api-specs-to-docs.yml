@@ -1,5 +1,6 @@
-name: Deploy Docs
-
+# GitHub PagesでAPI仕様書を公開するため、OpenAPIの仕様書をdocsディレクトリにコピーします
+# 後続の別のGitHub Actionsで、docsディレクトリの内容をGitHub Pagesにデプロイします
+name: "Copy API Specs to Docs"
 on:
   push:
     branches: [ main ]

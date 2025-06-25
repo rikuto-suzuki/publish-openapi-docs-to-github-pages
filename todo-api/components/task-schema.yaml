@@ -1,0 +1,15 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier for the task
+  title:
+    type: string
+    description: Title of the task
+  completed:
+    type: boolean
+    description: Whether the task is completed
+required:
+  - id
+  - title
+  - completed

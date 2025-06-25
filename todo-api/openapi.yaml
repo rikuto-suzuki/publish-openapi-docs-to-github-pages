@@ -1,11 +1,69 @@
-openapi: 3.0.0
+openapi: 3.0.3
 info:
-  title: Sample API
-  version: v1.0.2
+  title: Todo API
+  version: 1.0.0
+  description: API for managing tasks in the Todo application.
+servers:
+  - url: http://localhost:3000
 paths:
-  /hello:
-    $ref: './paths/hello.yaml'
+  /tasks:
+    get:
+      summary: Get all tasks
+      responses:
+        '200':
+          description: A list of tasks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+    post:
+      summary: Create a new task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '201':
+          description: Task created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+  /tasks/{taskId}:
+    get:
+      summary: Get a task by ID
+      parameters:
+        - in: path
+          name: taskId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Task details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
 components:
   schemas:
-    Hello:
-      $ref: './components/hello-schema.yaml'
+    Task:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the task
+        title:
+          type: string
+          description: Title of the task
+        completed:
+          type: boolean
+          description: Whether the task is completed
+      required:
+        - id
+        - title
+        - completed

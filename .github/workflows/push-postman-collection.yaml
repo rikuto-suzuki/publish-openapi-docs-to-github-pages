@@ -19,7 +19,7 @@ jobs:
 
       - name: Create PostmanAPI requests
         run: |
-          jq '{collection: .}' "Todo API (Connect GitHub).json" > collection.json
+          jq '{collection: .}' "postman/collections/Todo API (Connect GitHub).json" > collection.json
 
       - name: Push Collection to Postman
         run: |

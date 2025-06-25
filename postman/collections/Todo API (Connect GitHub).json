@@ -19,8 +19,8 @@
 			"id": "b1c45e44-1588-4efa-89ed-3a880aec97eb"
 		},
 		{
-			"name": "Say Hello",
-			"id": "49faf1fb-ed35-48e5-bbea-8dfc764abe0f",
+			"name": "Get all tasks",
+			"id": "7f420557-7c7a-4ed7-b7a9-ee2c3aca131f",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -33,19 +33,19 @@
 					}
 				],
 				"url": {
-					"raw": "{{baseUrl}}/hello",
+					"raw": "{{baseUrl}}/tasks",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"hello"
+						"tasks"
 					]
 				}
 			},
 			"response": [
 				{
-					"id": "292ce8e1-d130-440c-bfa9-b00297a03032",
-					"name": "Success",
+					"id": "f1633b7c-62b3-4b9b-803c-585b176c8a7d",
+					"name": "A list of tasks",
 					"originalRequest": {
 						"method": "GET",
 						"header": [
@@ -55,12 +55,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/hello",
+							"raw": "{{baseUrl}}/tasks",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"hello"
+								"tasks"
 							]
 						}
 					},
@@ -74,7 +74,169 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n  \"message\": \"Hello, world!\"\n}"
+					"body": "[\n  {\n    \"id\": \"dolore irure\",\n    \"title\": \"quis laborum sint ali\",\n    \"completed\": true\n  },\n  {\n    \"id\": \"incididunt consequat tempor occaecat\",\n    \"title\": \"ut anim\",\n    \"completed\": false\n  }\n]"
+				}
+			]
+		},
+		{
+			"name": "Create a new task",
+			"id": "960ae8b5-3432-4c01-82df-9c0e36f13088",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"in tempor dolor\",\n  \"title\": \"ad dolore incididunt mollit\",\n  \"completed\": false\n}",
+					"options": {
+						"raw": {
+							"headerFamily": "json",
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/tasks",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "6c013f19-9538-4b60-9b2b-38e461686c19",
+					"name": "Task created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"in tempor dolor\",\n  \"title\": \"ad dolore incididunt mollit\",\n  \"completed\": false\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tasks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"in tempor dolor\",\n  \"title\": \"ad dolore incididunt mollit\",\n  \"completed\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a task by ID",
+			"id": "c5901a84-ecb3-4d93-8b73-139090681572",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/tasks/:taskId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tasks",
+						":taskId"
+					],
+					"variable": [
+						{
+							"key": "taskId",
+							"value": "ut",
+							"description": "(Required) "
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "ca2c0570-0e1d-40f8-a80a-e41793b9e0c1",
+					"name": "Task details",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tasks/:taskId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tasks",
+								":taskId"
+							],
+							"variable": [
+								{
+									"key": "taskId"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"in tempor dolor\",\n  \"title\": \"ad dolore incididunt mollit\",\n  \"completed\": false\n}"
 				}
 			]
 		}
@@ -83,7 +245,7 @@
 		{
 			"id": "948beb2f-d952-41ab-922a-e3820353afcf",
 			"key": "baseUrl",
-			"value": "/",
+			"value": "http://localhost:3000",
 			"type": "string"
 		}
 	]
